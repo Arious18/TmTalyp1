@@ -1,0 +1,132 @@
+.fl-services-container {
+    padding: 2rem 1.5rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.fl-services-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.fl-service-card {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    height: 200px; /* Flag-like proportion */
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 8px -2px rgba(0,0,0,0.1);
+}
+
+.fl-service-card:hover {
+    transform: translateY(-3px);
+}
+
+.fl-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.15);
+    transition: background 0.3s ease;
+}
+
+.fl-service-card:hover .fl-overlay {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.fl-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 1rem 2rem;
+    width: calc(100% - 4rem);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.fl-service-card:hover .fl-content {
+    opacity: 1;
+}
+
+.fl-title {
+    font-size: 1.25rem;
+    color: #2d3748; /* Light mode color */
+    margin-bottom: 0.5rem;
+    transition: transform 0.3s ease;
+}
+
+.fl-service-card:hover .fl-title {
+    transform: translateY(-5px);
+}
+
+.fl-description {
+    color: #4a5568; /* Light mode color */
+    font-size: 0.875rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transition-delay: 0.05s;
+}
+
+.fl-service-card:hover .fl-description {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .fl-service-card {
+        height: 180px;
+    }
+
+    .fl-title {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .fl-services-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .fl-service-card {
+        height: 220px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .fl-services-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .fl-service-card {
+        height: 240px;
+    }
+}
+
+/* Dark Mode */
+.dark .fl-services-container {
+    background-color: #1a202c; /* Dark background for services container */
+}
+
+.dark .fl-service-card {
+    background-color: #2d3748; /* Dark background for service cards */
+    box-shadow: 0 4px 8px -2px rgba(0, 0, 0, 0.5); /* Darker shadow */
+}
+
+.dark .fl-overlay {
+    background: rgba(255, 255, 255, 0.1); /* Darker overlay */
+}
+
+.dark .fl-title {
+    color: #f7fafc; /* Light text for title in dark mode */
+}
+
+.dark .fl-description {
+    color: #e2e8f0; /* Light text for description in dark mode */
+}
